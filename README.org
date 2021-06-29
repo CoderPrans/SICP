@@ -1,0 +1,3 @@
+* SICP
+  
+Will include problem/solutions and notes from the MIT SICP lectures and book. 
