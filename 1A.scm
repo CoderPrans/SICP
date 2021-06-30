@@ -1,5 +1,5 @@
 
-
+;; Heron's square root algorithm
 (define (root x)
   (define square (lambda (x) (* x x)))
   (define avg (lambda (x y) (/ (+ x y) 2)))
