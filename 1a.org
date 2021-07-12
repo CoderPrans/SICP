@@ -1,0 +1,22 @@
+#+TITLE: SICP Lecture 1A
+
+* Heron's square root algorithm
+  - Take a guess
+  - If guess is good enough, return
+  - Else improve the guess
+
+#+BEGIN_SRC scheme
+(define (root x)
+  (define square (lambda (x) (* x x)))
+  (define avg (lambda (x y) (/ (+ x y) 2)))
+  (define good? (lambda (g) (< (abs (- (square g) x)) 0.001)))
+  (define improv (lambda (g) (avg g (/ x g))))
+  (define try (lambda (g) (if (good? g) g (try (improv g)))))
+  (try 1))
+  
+(root 12)
+(exact->inexact (root 12))
+#+END_SRC
+
+#+RESULTS:
+: 3.4641016533503
