@@ -1,8 +1,12 @@
 #+TITLE: SICP Lecture 1B
 
-* Peano Arithmetic Sum
+** Peano Arithmetic Sum
   - Recursively Decrement Num1, Increment Num2.
-  - Until Num1 == 0, Num2 == Num1 + Num2
+  - Until Num1 is 0, Num2 is (+ Num1 Num2)
+
+*** Using Iteration
+   - time complexity is O(x); where x is the first argument
+   - space complexity is O(1)
 
 #+BEGIN_SRC scheme
 (define (peano-sum x y)
@@ -13,6 +17,24 @@
       (peano-sum (dec x) (inc y))))
 
 (peano-sum 22 11)
+#+END_SRC
+
+#+RESULTS:
+: 33
+
+*** Using Recursion
+   - time complexity is O(x); where x is the first argument
+   - space complexity is O(x); where x is the first arugment
+
+#+BEGIN_SRC scheme
+(define (peano-recur x y)
+  (define (dec x) (- x 1))
+  (define (inc x) (+ x 1))
+  (if (= x 0)
+      y
+      (inc (peano-recur (dec x) y))))
+
+(peano-recur 22 11)
 #+END_SRC
 
 #+RESULTS:

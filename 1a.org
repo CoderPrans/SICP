@@ -1,6 +1,6 @@
 #+TITLE: SICP Lecture 1A
 
-* Heron's square root algorithm
+** Heron's square root algorithm
   - Take a guess
   - If guess is good enough, return
   - Else improve the guess
@@ -20,3 +20,22 @@
 
 #+RESULTS:
 : 3.4641016533503
+
+* Quotes from the book
+** Programming in LISP
+   The most significant of these features is the fact that
+   Lisp descriptions of processes, called procedures, can
+   themselves be represented and manipulated as Lisp data.
+   The importance of this is that there are powerful
+   program-design techniques that rely on the ability to blur
+   the traditional distinction between ``passive'' data and
+   ``active'' processes. As we shall discover, one of the
+   Lisp's flexibility in handling procedures as data makes it
+   most convenient languages in existence for exploring these
+   techniques. The ability to represent procedures as data also
+   makes Lisp an excellent language for writing programs that
+   must manipulate other programs as data, such as the
+   interpreters and compilers that support computer languages.
+   Above and beyond these considerations, programming in Lisp
+   is great fun.
+
