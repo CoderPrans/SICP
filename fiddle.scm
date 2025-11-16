@@ -1,16 +1,17 @@
 
                                         ; some playin'
-(define even? (λ (n) (= 0 (modulo n 2)))) ;; C-c \ to insert λ
+;; C-c \ to insert λ
+(define even? (λ (n) (= 0 (modulo n 2))))
 
 ((λ (n) (+ 5 n)) 14)
-; 19
+;; => 19
 
 ;; C-u C-x C-e inserts the result in buffer
 ;; control the prefix by setting var 'geiser-mode-eval-to-buffer-prefix
 (even? 14)
-; #t
+;; => #t
 (even? 15)
-; #f
+;; => #f
 
 (define (fibonacci x)
   (cond ((<= 1 x 2) 1)
@@ -20,7 +21,7 @@
       ))
 
 (fibonacci 15)
-; 610
+;; => 610
 
 (define (range n acc)
   (if (= n 0)
@@ -29,10 +30,10 @@
       (append (range (1- n) acc) (list n))))
 
 (range 8 '())
-; (1 2 3 4 5 6 7 8)
+;; => (1 2 3 4 5 6 7 8)
 
 (map fibonacci (range 11 '()))
-; (1 1 2 3 5 8 13 21 34 55 89)
+;; => (1 1 2 3 5 8 13 21 34 55 89)
 
 ;; in "block structure"
 (define (fibo-seq n)
@@ -49,7 +50,7 @@
   )
 
 (fibo-seq 11)
-; (1 1 2 3 5 8 13 21 34 55 89)
+;; => (1 1 2 3 5 8 13 21 34 55 89)
 
 (define (factorial n)
   (if (= n 1)
@@ -57,6 +58,20 @@
       (* n (factorial (- n 1)))))
 
 (factorial 6)
-; 720
+;; => 720
 
 
+(define (sum l)
+  (cond ((equal? l '()) 0)
+	((null? (cdr l)) (car l))
+	(else (sum (cons
+		    (+ (car l) (car (cdr l)))
+		    (cdr (cdr l))
+		    ))))
+  )
+
+(sum '())
+;; => 0
+
+(sum '(1 2 3 4))
+;; => 10

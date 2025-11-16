@@ -5,30 +5,30 @@
 (define radius 10)
 
 (* pi (* radius radius))
-; 314.159
+;; => 314.159
 
 (define circumference (* 2 pi radius))
 
 circumference
-; 62.8318
+;; => 62.8318
 
                                         ; 1-1-4
 (define (square x) (* x x))
 
 (square (square 3))
-; 81
+;; => 81
 
 (define (sum-of-squares a b)
   (+ (square a) (square b)))
 
 (sum-of-squares 3 4)
-; 25
+;; => 25
 
 (define (f a)
   (sum-of-squares (+ a 1) (* a 2)))
 
 (f 5)
-; 136
+;; => 136
 
                                         ; 1-1-5
 ;; Applicative Order
@@ -43,9 +43,9 @@ circumference
         (else x)))
 
 (abs -1)
-; 1
+;; => 1
 (abs 1)
-; 1
+;; => 1
 
 ;; *Exercise 1.2:* Translate the following expression into prefix
 ;; form.
@@ -56,7 +56,7 @@ circumference
 
 (/ (+ 5 4 (- 2 (- 3 (+ 6 (/ 4 5)))))
    (* 3 (- 6 2) (- 2 7)))
-; -37/150
+;; => -37/150
 
 
 ;; *Exercise 1.3:* Define a procedure that takes three numbers as
@@ -73,11 +73,11 @@ circumference
   )
 
 (f1.3 1 2 3)
-; 13
+;; => 13
 (f1.3 2 1 3)
-; 13
+;; => 13
 (f1.3 2 3 1)
-; 13
+;; => 13
 
 
 ;; *Exercise 1.4:* Observe that our model of evaluation allows for
@@ -88,9 +88,9 @@ circumference
   ((if (> b 0) + -) a b))
 
 (a-plus-abs-b 3 1)
-; 4
+;; => 4
 (a-plus-abs-b 3 -1)
-; 4
+;; => 4
 
 ;; the procedure is evaluated first
 ;; (a-plus-abs-b 3 1)
@@ -142,7 +142,7 @@ circumference
       (sqrt-iter (improve guess x) x)))
 
 (sqrt-iter 1.0 9)
-; 3.00009155413138
+;; => 3.00009155413138
 
 ;; *Example 1.6:*
 
@@ -157,8 +157,7 @@ circumference
                      x)))
 
 ;; Caution: do not evaluate
-(new-sqrt-iter 1.0 9)
-; infinite loop
+;; (new-sqrt-iter 1.0 9) ~ loop infinite
 
 ;; Explaination: due to the applicative order of evaluation
 ;; the arguments/operands are evaluated beforethe procedure,
@@ -182,10 +181,10 @@ circumference
       (sqrt-iter2 (improve guess x) guess x)))
 
 (sqrt-iter2 1.0 0.5 9)
-; 3.000000001396984
+;; => 3.000000001396984
 
 (sqrt-iter 1.0 9)
-; 3.00009155413138
+;; => 3.00009155413138
 
 ;; comparing the guess delta with the same precision marker (0.001)
 ;; gives an order of multitudes more precise result
@@ -205,7 +204,7 @@ circumference
 
 
 (cube-iter 1.0 27)
-; 3.0000005410641766
+;; => 3.0000005410641766
 
 
                                         ; 1-1-8
@@ -224,4 +223,4 @@ circumference
   (sqrt-iter 1.0))
 
 (sqrt-block 9)
-; 3.00009155413138
+;; => 3.00009155413138
