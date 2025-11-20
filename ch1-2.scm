@@ -8,6 +8,8 @@
 (factorial 6)
 ;; => 720
 
+;;           "linear recursive process"
+;;           characterized by a chain of deferred operations
 
 ;;           (factorial 6)        ------------------------.
 ;;           (* 6 (factorial 5))                          |
@@ -37,6 +39,8 @@
 (factorial2 6)
 ;; => 720
 
+;;           "linear iterative process"
+
 
 ;;           (factorial 6)   -----.
 ;;           (fact-iter   1 1 6)  |
@@ -48,3 +52,42 @@
 ;;           (fact-iter 720 7 6)  V
 ;;           720
 
+;; *Example 1.9:*
+
+(define (sum-a a b)
+  (if (= a 0)
+      b
+      (1+ (sum-a (1- a) b))))
+
+
+(sum-a 2 4)
+;; => 6
+
+(define (sum-b a b)
+  (if (= a 0)
+      b
+      (sum-b (1- a) (1+ b))))
+
+(sum-b 2 4)
+;; => 6
+
+;; sum-a
+
+;; (1+ (sum-a (1- 2) 4)
+;; (1+ (1+ (sum-a (1- 1) 4)))
+;; (1+ (1+ 4))
+;; (1+ 5)
+;; 6
+
+;; sum-b
+
+;; (sum-b (1- 2) (1+ 4))
+;; (sum-b (1- 1) (1+ 5))
+;; (sum-b 0 6)
+;; 6
+
+;; 6
+
+;; Hence upon observation,
+;; sum-a is recursive processs
+;; sum-b is iterative process
